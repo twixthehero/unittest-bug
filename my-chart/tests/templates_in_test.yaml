@@ -1,11 +1,11 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/helm-unittest/helm-unittest/main/schema/helm-testsuite.json
-suite: documentSelector does not work when using multiple templates in suite
-templates:
-- deployment.yaml
-- secret.yaml
+suite: documentSelector does not work when using multiple templates in test
 
 tests:
 - it: "deployment exists"
+  templates:
+  - deployment.yaml
+  - secret.yaml
   documentSelector:
     path: metadata.name
     value: deployment
@@ -14,6 +14,9 @@ tests:
       path: spec.replicas
       value: 1
 - it: "secret exists"
+  templates:
+  - deployment.yaml
+  - secret.yaml
   documentSelector:
     path: metadata.name
     value: secret
