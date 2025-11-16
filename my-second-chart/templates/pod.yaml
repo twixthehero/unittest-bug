@@ -1,0 +1,6 @@
+apiVersion: core/v1
+kind: Pod
+metadata:
+  name: pod
+spec:
+  serviceAccountName: saName

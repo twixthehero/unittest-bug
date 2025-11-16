@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/helm-unittest/helm-unittest/main/schema/helm-testsuite.json
+suite: documentSelector correctly works for only deployment test
+templates:
+- deployment.yaml
+
+tests:
+- it: "deployment exists"
+  documentSelector:
+    path: metadata.name
+    value: deployment
+  asserts:
+  - equal:
+      path: spec.replicas
+      value: 1
+- it: "secret exists"
+  documentSelector:
+    path: metadata.name
+    value: secret
+  asserts:
+  - equal:
+      path: data.key
+      value: value

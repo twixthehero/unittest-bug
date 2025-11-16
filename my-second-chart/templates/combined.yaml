@@ -1,0 +1,13 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment
+spec:
+  replicas: 1
+---
+apiVersion: core/v1
+kind: Secret
+metadata:
+  name: secret
+data:
+  key: value
